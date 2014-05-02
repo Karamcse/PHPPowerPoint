@@ -22,24 +22,13 @@ $objPHPPowerPoint->removeSlideByIndex(0);
 
 
 
-$today = date('Y-m-d', mktime(0, 0, 0, date("m") , date("d"), date("Y")));
-
 $today1 = date('M', mktime(0, 0, 0, date("m") , date("d"), date("Y")));
 
-$yesterday = date('Y-m-d', mktime(0, 0, 0, date("m") , date("d") - 1, date("Y")));
 
-$day=date("l");
-
-
-//echo $yesterday;
-
-$strMonthYear = date('Md-Y', strtotime($yesterday));
-
-$strMonthYear1 = date('M d, Y', strtotime($today));
 
 $filepath="/home/karam/";
 
-$bmawstats=$filepath."karam".$strMonthYear.".xls";
+$karam1=$filepath."karam".$strMonthYear.".xls";
 
 
 $currentSlide = $obj->createTemplatedSlide($objPHPPowerPoint);
@@ -48,7 +37,7 @@ $body = $obj->logoTemplate($currentSlide,$strMonthYear1);
 
 $currentSlide = $obj->createTemplatedSlide($objPHPPowerPoint);
 
-$body = $obj->extractExcel($currentSlide,"$bmdailyindclick",2,0,0,0,0);
+$body = $obj->extractExcel($currentSlide,"$karam1",1,0,0,0,0);
 
 
 $currentSlide = $obj->createTemplatedSlide($objPHPPowerPoint);
@@ -56,7 +45,7 @@ $currentSlide = $obj->createTemplatedSlide($objPHPPowerPoint);
 $body = $obj->logoTemplate($currentSlide,"Thank You");
 
 
-$filename="/home/karam/".$today1."_".date("d")."_ppt_blackwhite.pptx";
+$filename="/home/karam/".$today1."_".date("d")."_ppt.pptx";
 
 $file=$obj->saveFile($objPHPPowerPoint,$filename);
 
